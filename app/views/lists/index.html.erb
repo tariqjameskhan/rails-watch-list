@@ -1,26 +1,26 @@
-<div class="navbar-lewagon">
-  <h1 class="ms-3 p-2">My Movie Lists</h1>
+<div class="navbar-lewagon d-flex justify-content-space-between align-items-center bg-dark">
+  <h1 class="ms-3 p-2 fs-2 text-light">My Movie Lists</h1>
+  <%= link_to "All lists", lists_path, class: "me-3 p-2 text-decoration-none fs-3 text-light" %>
 </div>
-<div class="container d-flex justify-content-evenly">
-  <% @lists.each do |list| %>
-    <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"><%= list.name %></h5>
-        <p class="card-text"></p>
-      </div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.themoviedb.org/t/p/original/1uoU4qPZEcOus0rQf8Tz4JCn3cX.jpg);">
+  <div class="container d-flex justify-content-center">
+    <h1 class="fs-1 font-monospace">My movie<strong> lists</strong>!</h1>
+  </div>
+</div>
 
-      <ul class="list-group list-group-flush">
-      <% list.bookmarks.each do |bookmark| %>
-        <li class="list-group-item">Movie Title: <%= bookmark.movie.title %></li>
-        <li class="list-group-item">Movie Overview: <%= bookmark.movie.overview %></li>
-      <% end %>
-      </ul>
-      <div class="card-body">
-        <%= link_to "See List", list_path(list), class: "btn btn-dark text-light mt-3 p-2 ms-1" %>
+<div class="d-flex justify-content-center">
+  <div class="container row p-5 justify-content-center">
+    <% @lists.each do |list| %>
+      <div class="bg-image card card-list shadow-1-strong col-3 m-4" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%= list.image_url %>);" style="width: 18rem;">
+        <div class="card-body">
+          <h2 class="card-text text-light"><%= list.name %></h2>
+        </div>
+        <div class="card-body">
+          <%= link_to "See List", list_path(list), class: "btn btn-dark text-light mt-3 p-2 ms-1" %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 <div class="container d-flex justify-content-end mb-5">
   <%= link_to "Add a new list", new_list_path, class: "btn btn-dark text-light mt-3 p-2 ms-1" %>

@@ -1,14 +1,16 @@
-<h1>Lists#new</h1>
-<p>Find me in app/views/lists/new.html.erb</p>
-
+<div class="navbar-lewagon d-flex justify-content-space-between align-items-center bg-dark">
+  <h1 class="ms-3 p-2 fs-2 text-light">My Movie Lists</h1>
+  <%= link_to "All lists", lists_path, class: "me-3 p-2 text-decoration-none fs-3 text-light" %>
+</div>
 <div class="container">
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-5">
       <div class="col-10 col-sm-6">
         <h1 class="border-bottom p-3">Add the name of<strong> your</strong> list</h1>
         <%= simple_form_for(@list) do |f| %>
         <%= f.input :name %>
-        <%= f.submit %>
+        <%= f.input :image_url %>
+        <%= f.submit class: "btn btn-success"%>
          <% end %>
         <div>
           <p><%= link_to "Back to all lists", lists_path, class: "btn btn-dark mt-5 text-white"%></p>

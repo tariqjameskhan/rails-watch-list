@@ -11,7 +11,7 @@
 <div class="d-flex justify-content-center">
   <div class="container row p-5 justify-content-center">
     <% @lists.each do |list| %>
-      <div class="bg-image card card-list shadow-1-strong col-3 m-4" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%= list.image_url %>);" style="width: 18rem;">
+      <div class="bg-image card card-list shadow-1-strong col-3 m-4" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%= cl_image_path list.photo.key %>);" style="width: 18rem;">
         <div class="card-body">
           <h2 class="card-text text-light"><%= list.name %></h2>
         </div>

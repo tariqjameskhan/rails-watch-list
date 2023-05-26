@@ -2,7 +2,12 @@
   <h1 class="ms-3 p-2 fs-2 text-light"><%= @list.name %> List</h1>
   <%= link_to "All lists", lists_path, class: "me-3 p-2 text-decoration-none fs-3 text-light" %>
 </div>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @list.photo.key %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+  url(<% if @list.photo.key.nil? %>
+          <%= @list.image_url %>
+      <% else %>
+          <%= cl_image_path @list.photo.key %>
+      <% end %>);">
   <div class="container d-flex justify-content-center">
     <h1 class="fs-1 font-monospace"><%= @list.name %>!</h1>
   </div>
